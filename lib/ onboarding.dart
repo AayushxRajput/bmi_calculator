@@ -14,50 +14,75 @@ class _OnbordingState extends State<Onbording> {
     return Scaffold(
       backgroundColor: Colors.black12,
 
-      body: PageView.builder(
-          itemCount: contents.length,
-          itemBuilder: (_,i){
+      body: Column(
+        children: [
+          Expanded(
+            child: PageView.builder(
+                itemCount: contents.length,
+                itemBuilder: (_,i){
 
-            return  Column(
-              children: [
-                Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Center(
-                        child: Image.asset(contents[i].images,
-                          height: 500,
-                          width:  250,
+                  return  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Center(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Center(
+                                child: Image.asset(contents[i].images,
+                                  height: 500,
+                                  width:  250,
+                                ),
+                              ),
+
+                               Text(
+                                contents[i].title,
+                                 style: const TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+
+                              const SizedBox(height: 10,),
+                               Text(
+                                contents[i].discription,
+                                 textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-
-                       Text(
-                        contents[i].title,
-                         style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-
-                      const SizedBox(height: 10,),
-                       Text(
-                        contents[i].discription,
-                         textAlign: TextAlign.center,
-                          style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            );
+                      ],
+                    ),
+                  );
 
 
-          }
+                }
+            ),
+          ),
+
+          Container(),
+          Container(
+            height: 40,
+            margin: const EdgeInsets.only(left: 200),
+            width: double.infinity,
+            child: ElevatedButton(
+              child: Text('Next',style: TextStyle(color: Colors.white),),
+              onPressed: () {  },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+              ),
+            ),
+          ),
+
+
+        ],
       )
     );
   }
