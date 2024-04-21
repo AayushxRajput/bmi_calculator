@@ -12,7 +12,9 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.orange),
+          useMaterial3: true,
+          primarySwatch: Colors.orange
+      ),
       title: 'Bmi Calculator',
       home: const Onbording(),
     );
