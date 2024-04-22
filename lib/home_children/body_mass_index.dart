@@ -12,11 +12,11 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Colors.black26,
+      backgroundColor: const Color(0xFF4E793E),
       appBar:AppBar(
         leading: IconButton(
           color: Colors.black,
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back),
           iconSize: 20.0,
           onPressed: () {
             Navigator.pop(context);

@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF62b450),
+      backgroundColor: const Color(0xFF98E761),
       appBar: AppBar(
         backgroundColor: const Color(0xff645b5bff),
         title: const Text(
@@ -38,7 +38,79 @@ class _HomeState extends State<Home> {
 
       body: Column(
         children: [
-          const SizedBox(height: 40,),
+
+
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+             child: Container(
+               height: 200,
+               width: 360,
+               decoration: BoxDecoration(
+                 borderRadius: BorderRadius.circular(20),
+                 color: Colors.grey[300],
+               ),
+
+               child: ClipRRect(
+                 borderRadius: BorderRadius.circular(20),
+                 child: Stack(
+                   children: [
+                     Positioned.fill(
+                       child: Image.asset(
+                         'images/home6.jpg',
+                         fit: BoxFit.cover,
+                       ),
+                     ),
+
+                     Positioned.fill(
+                       child: Container(
+                         decoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(20),
+                           color: Colors.white.withOpacity(0.5), // Semi-transparent white layer
+                         ),
+                       ),
+                     ),
+
+                     const Padding(
+                       padding: EdgeInsets.all(16.0),
+                       child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+
+                           Text(
+                             'Health',
+                             style: TextStyle(
+                               fontSize: 30,
+                               fontWeight: FontWeight.bold,
+                               color: Colors.white,
+                             ),
+                           ),
+                           Text(
+                             'Calculator',
+                             style: TextStyle(
+                               fontSize: 30,
+                               fontWeight: FontWeight.bold,
+                               color: Colors.white,
+                             ),
+                           ),
+
+                           SizedBox(height: 30),
+                           Text(
+                             'Stay fit & calculate with your favorite health tool accurately & easily',
+                             style: TextStyle(
+                               fontSize: 18,
+                               color: Colors.blueGrey,
+                               fontWeight: FontWeight.w500,
+                             ),
+                           ),
+                         ],
+                       ),
+                     ),
+                   ],
+                 ),
+               ),
+             )
+          ),
+
           Expanded(
             child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
@@ -51,6 +123,7 @@ class _HomeState extends State<Home> {
 
               itemBuilder: (BuildContext context , int index){
                 return GestureDetector(
+
                   onTap: () {
 
                     if (index == 0) {
@@ -87,9 +160,8 @@ class _HomeState extends State<Home> {
 
                   },
 
-
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 50,left: 15,right: 15),
+                    padding: const EdgeInsets.only(top: 40,left: 15,right: 15),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -132,6 +204,7 @@ class _HomeState extends State<Home> {
               },
             ),
           ),
+
 
 
         ],
