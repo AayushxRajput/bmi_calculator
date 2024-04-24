@@ -28,7 +28,7 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
               style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Colors.black,
           ),
         ),
       ),
@@ -89,6 +89,7 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
+                        hintText: 'Feet',
                         fillColor: Colors.white,
                         filled: true,
                       ),
@@ -105,6 +106,7 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
+                        hintText: 'Inch',
                         fillColor: Colors.white,
                         filled: true,
                       ),
@@ -112,21 +114,6 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
                     ),
                   ),
 
-
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: TextField(
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        fillColor: Colors.white,
-                        filled: true,
-                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
                 ],
               ),
 
@@ -147,34 +134,22 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: TextField(
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 60,right: 60),
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          fillColor: Colors.white,
+                          filled: true,
                         ),
-                        fillColor: Colors.white,
-                        filled: true,
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
 
-
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: TextField(
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        fillColor: Colors.white,
-                        filled: true,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
                 ],
               ),
 

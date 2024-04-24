@@ -11,7 +11,7 @@ class _DailyCalorieIntakeState extends State<DailyCalorieIntake> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Colors.black26,
+      backgroundColor: const Color(0xFF4E793E),
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -26,6 +26,155 @@ class _DailyCalorieIntakeState extends State<DailyCalorieIntake> {
             fontSize: 25,
             fontWeight: FontWeight.bold,
             color: Colors.white,
+          ),
+        ),
+      ),
+
+      body:  Padding(
+        padding: const EdgeInsets.all(8.0),
+        child:  SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+
+              //Enter Age Text
+              const SizedBox(height: 15,),
+              const Text(
+                'Enter Age',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+
+              //Enter Age TextField
+              const SizedBox(height: 15,),
+              TextField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(17),
+                  ),
+
+                  hintText: 'Enter Age ',
+                  fillColor: Colors.white,
+                  filled: true,
+                ),
+              ),
+
+              //Enter Height Text
+              const SizedBox(height: 30,),
+              const Text(
+                'Enter Height',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+
+              //Enter Height TextField
+              const SizedBox(height: 15,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        hintText: 'Feet',
+                        fillColor: Colors.white,
+                        filled: true,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+
+
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        hintText: 'Inch',
+                        fillColor: Colors.white,
+                        filled: true,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+
+                ],
+              ),
+
+              //Enter Weight Text
+              const SizedBox(height: 30,),
+              const Text(
+                'Enter Weight',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+
+              //Enter Weight TextField
+              const SizedBox(height: 15,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 60,right: 60),
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          fillColor: Colors.white,
+                          filled: true,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
+
+              //Calculate Button
+              const SizedBox(height: 40,),
+              ElevatedButton(
+                onPressed: () {
+                },
+
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(35),
+                  ),
+                ),
+
+                child: const Text(
+                  'Calculate',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              )
+
+            ],
           ),
         ),
       ),

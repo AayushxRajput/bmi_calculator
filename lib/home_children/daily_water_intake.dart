@@ -30,9 +30,7 @@ class _DailyWaterIntakeState extends State<DailyWaterIntake> {
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              fontFamily: 'Raleway',
-              letterSpacing: 1.0,
-            ),
+             ),
           ),
       ),
 
