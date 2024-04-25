@@ -12,7 +12,7 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: const Color(0xFF4E793E),
+      backgroundColor: Colors.cyan,
       appBar:AppBar(
         leading: IconButton(
           color: Colors.black,
@@ -37,43 +37,87 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
         padding: const EdgeInsets.all(8.0),
         child:  SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
 
               //Enter Age Text
               const SizedBox(height: 15,),
-              const Text(
-                'Enter Age',
-                    style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
+              const Padding(
+                padding: EdgeInsets.only(left: 5),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Enter Age',
+                        style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                    ),
+                  ),
                 ),
               ),
 
               //Enter Age TextField
               const SizedBox(height: 15,),
-              TextField(
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(17),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(17),
+                        ),
+
+                        hintText: 'Enter Age ',
+                        fillColor: Colors.white,
+                        filled: true,
+                      ),
+                    ),
                   ),
 
-                  hintText: 'Enter Age ',
-                  fillColor: Colors.white,
-                  filled: true,
-                ),
+                  const SizedBox(width: 10,),
+                  Container(
+                    height: 60,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(13),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          blurRadius: 8,
+                          offset: const Offset(10, 6),
+                        ),
+                      ],
+                      color: Colors.white,
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Age",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                ],
               ),
 
               //Enter Height Text
               const SizedBox(height: 30,),
-              const Text(
-                'Enter Height',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
+              const Padding(
+                padding: EdgeInsets.only(left: 5),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Enter Height',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                 ),
               ),
 
@@ -114,17 +158,48 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
                     ),
                   ),
 
+                  const SizedBox(width: 10,),
+                  Container(
+                    height: 60,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(13),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          blurRadius: 8,
+                          offset: const Offset(10, 6),
+                        ),
+                      ],
+                      color: Colors.white,
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Height",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
 
               //Enter Weight Text
               const SizedBox(height: 30,),
-              const Text(
-                'Enter Weight',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
+              const Padding(
+                padding: EdgeInsets.only(left: 5),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Enter Weight',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                 ),
               ),
 
@@ -135,21 +210,46 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 60,right: 60),
+                      padding: const EdgeInsets.only(left: 0,right: 30),
                       child: TextField(
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
+                          hintText: 'Enter Weight',
                           fillColor: Colors.white,
                           filled: true,
                         ),
-                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
 
+                  const SizedBox(width: 10,),
+                  Container(
+                    height: 60,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(13),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          blurRadius: 8,
+                          offset: const Offset(10, 6),
+                        ),
+                      ],
+                      color: Colors.white,
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Weight",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
 
