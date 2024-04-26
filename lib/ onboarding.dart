@@ -1,15 +1,14 @@
-// import 'package:bmi_calculator/content_model.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
 
-class Onbording extends StatefulWidget {
-  const Onbording({super.key});
+class Onboarding extends StatefulWidget {
+  const Onboarding({super.key});
 
   @override
-  State<Onbording> createState() => _OnbordingState();
+  State<Onboarding> createState() => _OnboardingState();
 }
 
-class _OnbordingState extends State<Onbording> {
+class _OnboardingState extends State<Onboarding> {
 
   // Skip Button Method
   continueMethod(){
@@ -31,7 +30,7 @@ class _OnbordingState extends State<Onbording> {
     });
   }
 
-  List UnbordingContent  =[
+  List UnboardingContent  =[
 
     {
       "title": 'BMI Calculator',
@@ -87,7 +86,7 @@ class _OnbordingState extends State<Onbording> {
             PageView.builder(
               scrollDirection: Axis.horizontal,
               controller: pageController,
-              itemCount: UnbordingContent.length,
+              itemCount: UnboardingContent.length,
               onPageChanged: onChanged,
               itemBuilder: (context,index){
                 return Column(
@@ -109,7 +108,7 @@ class _OnbordingState extends State<Onbording> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
                         child: Image.asset(
-                          UnbordingContent[index]['images'],
+                          UnboardingContent[index]['images'],
                           height: 380,
                           width: 300,
                           fit: BoxFit.cover,
@@ -119,7 +118,7 @@ class _OnbordingState extends State<Onbording> {
 
                     const SizedBox(height: 25,),
                     Text(
-                      UnbordingContent[index]['title'],
+                      UnboardingContent[index]['title'],
                       style: const TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -130,11 +129,13 @@ class _OnbordingState extends State<Onbording> {
                     const SizedBox(height: 20,),
                     Padding(
                       padding: const EdgeInsets.only(right: 5,left: 5),
-                      child: Text(UnbordingContent[index]['description'],
+                      child: Text
+                        (UnboardingContent[index]['description'],
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 20,
                           color: Colors.white,
+                          fontStyle: FontStyle.italic
                         ),
                       ),
                     )
@@ -151,7 +152,7 @@ class _OnbordingState extends State<Onbording> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
 
-                  (currentPage == (UnbordingContent.length -1)) ?
+                  (currentPage == (UnboardingContent.length -1)) ?
 
                   ElevatedButton(
                     onPressed: continueMethod,
@@ -167,7 +168,7 @@ class _OnbordingState extends State<Onbording> {
                       :Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
-                        UnbordingContent.length, (index) {
+                        UnboardingContent.length, (index) {
                       return AnimatedContainer(
                         duration: const Duration(
                             milliseconds: 200),

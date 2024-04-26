@@ -9,6 +9,12 @@ import 'package:flutter/material.dart';
 
 class _BodyMassIndexState extends State<BodyMassIndex> {
 
+  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _feetController = TextEditingController();
+  final TextEditingController _inchesController = TextEditingController();
+  final TextEditingController _weightController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -62,6 +68,7 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
                 children: [
                   Expanded(
                     child: TextField(
+                      controller: _ageController,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -128,6 +135,7 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
                 children: [
                   Expanded(
                     child: TextField(
+                      controller: _feetController,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -145,6 +153,7 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
                   const SizedBox(width: 16),
                   Expanded(
                     child: TextField(
+                      controller: _inchesController,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -212,6 +221,7 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 0,right: 30),
                       child: TextField(
+                        controller: _weightController,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -257,8 +267,55 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
               const SizedBox(height: 40,),
               ElevatedButton(
                 onPressed: () {
-                },
+                  // Retrieve the values from the text fields
+                  int? age = int.tryParse(_ageController.text);
+                  double? feet = double.tryParse(_feetController.text);
+                  double? inches = double.tryParse(_inchesController.text);
+                  double? weight = double.tryParse(_weightController.text);
 
+                  // Check if all required values are entered
+                  if (age != null && feet != null && inches != null && weight != null) {
+                    // Convert height from feet and inches to meters
+                    double heightInMeters = (feet * 0.3048) + (inches * 0.0254);
+
+                    // Convert weight from pounds to kilograms
+                    double weightInKilograms = weight * 0.453592;
+
+                    // Calculate BMI
+                    double bmi = weightInKilograms / (heightInMeters * heightInMeters);
+
+                    // Display the calculated BMI
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('BMI Result'),
+                        content: Text('Your BMI is: ${bmi.toStringAsFixed(2)}'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      ),
+                    );
+                  } else {
+                    // Display an error message if any field is empty
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('Error'),
+                        content: const Text(
+                            'Please enter all required values.'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                   padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
@@ -266,7 +323,6 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
                     borderRadius: BorderRadius.circular(35),
                   ),
                 ),
-
                 child: const Text(
                   'Calculate',
                   style: TextStyle(
