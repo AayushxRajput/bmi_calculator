@@ -9,9 +9,13 @@ class DailyWaterIntake extends StatefulWidget {
 }
 
 class _DailyWaterIntakeState extends State<DailyWaterIntake> {
-
+  static const double waterIntakePerKg = 0.045;
   int _currentValue = 10;
 
+
+  double calculateDailyWaterIntake(int weightInKg) {
+    return weightInKg * waterIntakePerKg;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -117,6 +121,44 @@ class _DailyWaterIntakeState extends State<DailyWaterIntake> {
             const SizedBox(height: 40,),
             ElevatedButton(
               onPressed: () {
+
+                final dailyWaterIntake = calculateDailyWaterIntake(_currentValue);
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    backgroundColor: Colors.green,
+                    title: const Text(
+                        'Recommended Daily Water Intake',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 25,
+                      ),
+                    ),
+
+                    content: Text(
+                        'Based on your weight of $_currentValue KG, '
+                            'your recommended daily water intake is'
+                            ' ${dailyWaterIntake.toStringAsFixed(2)} liters.',
+                        style: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 20,
+                    ),
+                  ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: const Text(
+                            'OK',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
               },
 
               style: ElevatedButton.styleFrom(

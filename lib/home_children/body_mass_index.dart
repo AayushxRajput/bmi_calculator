@@ -288,12 +288,34 @@ class _BodyMassIndexState extends State<BodyMassIndex> {
                     showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
-                        title: const Text('BMI Result'),
-                        content: Text('Your BMI is: ${bmi.toStringAsFixed(2)}'),
+                        backgroundColor: Colors.green,
+                        title: const Text(
+                            'BMI Result',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 29,
+                          ),
+                        ),
+
+                        content: Text(
+                            'Your BMI is: ${bmi.toStringAsFixed(2)}',
+                            style: const TextStyle(
+                             color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                             fontSize: 24,
+                           )
+                         ),
+
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.pop(context),
-                            child: const Text('OK'),
+                            child: const Text(
+                                'OK',
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
                           ),
                         ],
                       ),
