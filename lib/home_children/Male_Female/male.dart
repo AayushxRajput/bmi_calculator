@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DailyCalorieIntake extends StatefulWidget {
-  const DailyCalorieIntake({super.key});
+class MaleScreen extends StatefulWidget {
+  const MaleScreen({super.key});
 
   @override
-  State<DailyCalorieIntake> createState() => _DailyCalorieIntakeState();
+  State<MaleScreen> createState() => _MaleScreenState();
 }
 
-class _DailyCalorieIntakeState extends State<DailyCalorieIntake> {
+class _MaleScreenState extends State<MaleScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(

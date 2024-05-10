@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'home_children/body_mass_index.dart';
 import 'home_children/calorie_burned.dart';
-import 'home_children/daily_calorie_intake.dart';
+// import 'home_children/daily_calorie_intake.dart';
 import 'home_children/daily_water_intake.dart';
+import 'home_children/select_male_female.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -146,7 +147,7 @@ class _HomeState extends State<Home> {
                       // Navigate to the Daily Calorie Intake screen
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const DailyCalorieIntake()),
+                        MaterialPageRoute(builder: (context) => const MaleFemaleScreen()),
                       );
                     }
 
